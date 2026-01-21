@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "/Users/user/Documents/git/gh_zuevval/cpp_project_example/src"
+    "cmake.sourceDirectory": "/Users/user/Documents/git/gh_zuevval/cpp_project_example/src",
+    "cmake.debugConfig": {
+        "args": ["/Users/user/Documents/git/gh_zuevval/cpp_project_example/data/example/input.json"]
+    }
 }
