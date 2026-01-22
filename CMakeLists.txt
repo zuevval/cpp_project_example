@@ -38,11 +38,12 @@ add_executable(
   graphTest
   ${TEST_DIRECTORY}/testGraph.cpp
   ${SOURCE_DIR}/graph/Graph.cpp
+  ${TEST_DIRECTORY}/testReadWrite.cpp
+  ${SOURCE_DIR}/io/Reader.cpp
+  ${SOURCE_DIR}/io/Writer.cpp
 )
-target_link_libraries(
-  graphTest
-  GTest::gtest_main
-)
+target_link_libraries(graphTest GTest::gtest_main)
+target_link_libraries(graphTest nlohmann_json::nlohmann_json)
 
 include(GoogleTest)
 gtest_discover_tests(graphTest)
