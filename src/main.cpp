@@ -9,17 +9,18 @@ namespace fs = std::filesystem;
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
+    if (argc != 3)
     {
-        std::cerr << "Usage: graphConverter <path/to/input.json>" << std::endl;
+        std::cerr << "Usage: graphConverter <path/to/input.json> <path/to/output.txt>" << std::endl;
         return 1;
     }
 
-    fs::path inputPath{argv[1]};
+    fs::path inputPath{argv[1]}, outputPath{argv[2]};
     try
     {
-        Reader reader(inputPath);
-        Graph graph = reader.read();
+        Graph graph = Reader(inputPath).read();
+        Writer(graph).write(outputPath);
+        std::cout << "Wrote output successfully to " << outputPath << std::endl;
     }
     catch (std::exception const &e)
     {
