@@ -1,0 +1,30 @@
+
+name: Cpp CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Cpp
+        uses: aminya/setup-cpp@v1
+        with:
+          compiler: gcc
+          cmake: true
+      - name: Build
+        run: cmake -S . -B build && cmake --build build
+      - name: Test
+        run: cd build && ctest --output-on-failure
+        if: success() || failure() # run even if the previous step fails
+      - name: Publish tests artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tests-output
+          path: ./build
+        if: success() || failure()
