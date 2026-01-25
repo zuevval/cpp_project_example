@@ -18,3 +18,8 @@ TEST(GraphTest, GetEdgeList)
   EXPECT_EQ(eList.size(), 1);
   EXPECT_TRUE(eList[0].first == "a" || eList[0].second == "b");
 }
+
+TEST(GraphTest, Failing)
+{
+  ASSERT_TRUE(false);
+}
