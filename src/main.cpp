@@ -29,5 +29,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    std::cout << "Bye" << std::endl;
+
     return 0;
 }
