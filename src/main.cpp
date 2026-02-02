@@ -9,6 +9,7 @@ namespace fs = std::filesystem;
 
 int main(int argc, char *argv[])
 {
+    std::cout << "Hello!" << std::endl;
     if (argc != 3)
     {
         std::cerr << "Usage: graphConverter <path/to/input.json> <path/to/output.txt>" << std::endl;
